@@ -574,13 +574,18 @@ export default function App(){
             </div>)}
           </div>
         </Card>
-        <Card>
+                <Card>
           <ST c={acc}>🔔 Rappels</ST>
           <div style={{fontSize:12,color:"#555",lineHeight:1.8,marginBottom:14}}>Reçois une notification à l'heure de chaque tâche non complétée.</div>
-             <button onClick={onLogout} className="bg" style={{width:"100%",background:"transparent",border:"1px solid #141414",borderRadius:13,padding:13,fontSize:13,color:"#333",cursor:"pointer",fontFamily:ff,marginBottom:6}}>Se déconnecter</button>
+          <button className="bm" onClick={()=>{setTab("today");setEditModal({id:"",time:"08:00",emoji:"📌",title:"",sub:"",category:"routine",freq:"daily",days:[0,1,2,3,4,5,6]});}} style={{width:"100%",background:acc,color:"#000",border:"none",borderRadius:13,padding:13,fontSize:14,fontWeight:700,cursor:"pointer",fontFamily:ff}}>+ Ajouter une tâche</button>
+        </Card>
+        <Card>
+          <ST c={acc}>🔄 Réinitialisation</ST>
+          <button onClick={()=>setConfirm({msg:"Réinitialiser aujourd'hui ?",action:resetToday})} className="bg" style={{width:"100%",background:"transparent",border:"1px solid #0d2a0d",borderRadius:13,padding:13,fontSize:13,color:"#4caf50",cursor:"pointer",fontFamily:ff,marginBottom:10}}>🔄 Réinitialiser aujourd'hui</button>
+          <button onClick={()=>setConfirm({msg:"⚠️ Effacer TOUTE la progression ?",action:resetAll})} className="bg" style={{width:"100%",background:"transparent",border:"1px solid #2a0d0d",borderRadius:13,padding:13,fontSize:13,color:"#ef5350",cursor:"pointer",fontFamily:ff}}>⚠️ Effacer toute la progression</button>
+        </Card>
+        <button onClick={onLogout} className="bg" style={{width:"100%",background:"transparent",border:"1px solid #141414",borderRadius:13,padding:13,fontSize:13,color:"#333",cursor:"pointer",fontFamily:ff,marginBottom:6}}>Se déconnecter</button>
       </div>}
-    </div>
-
     {tab==="today"&&<button className="fab" onClick={()=>setEditModal({id:"",time:"08:00",emoji:"📌",title:"",sub:"",category:"routine",freq:"daily",days:[0,1,2,3,4,5,6]})} style={{position:"fixed",bottom:26,right:22,width:56,height:56,borderRadius:28,background:acc,color:"#000",border:"none",fontSize:30,fontWeight:200,cursor:"pointer",display:"flex",alignItems:"center",justifyContent:"center",boxShadow:`0 6px 28px rgba(var(--acc-rgb),.45)`,zIndex:100}}>+</button>}
 
     {editModal&&<EditModal task={editModal} onSave={saveTask} onDelete={(id)=>setConfirm({msg:"Supprimer cette tâche ?",action:()=>delTask(id)})} onClose={()=>setEditModal(null)}/>}
