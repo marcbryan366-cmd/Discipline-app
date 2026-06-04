@@ -600,6 +600,11 @@ export default function App(){
           <button onClick={confirm.action} style={{flex:1,background:"#ef5350",color:"#fff",border:"none",borderRadius:12,padding:13,fontSize:13,fontWeight:700,cursor:"pointer",fontFamily:ff}}>Confirmer</button>
         </div>
       </div>
-    </div>}
-  </div>;
-    }
+          </div>}
+      
+    </div>
+  );
+};
+
+export default App; 
+                                                                    
