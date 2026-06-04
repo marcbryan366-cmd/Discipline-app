@@ -560,7 +560,6 @@ export default function App(){
             <div style={{width:52,height:52,borderRadius:26,background:`${acc}18`,border:`2.5px solid ${acc}30`,display:"flex",alignItems:"center",justifyContent:"center",fontSize:22,flexShrink:0}}>👤</div>
             <div><div style={{fontSize:19,fontWeight:800,color:acc}}>{userInfo.name||username}</div><div style={{fontSize:11,color:"#3a3a3a"}}>@{username}</div><div style={{fontSize:10,color:"#2a2a2a",marginTop:2}}>Depuis {userInfo.createdAt||"..."}</div></div>
           </div>
-          <Div/>
           <div style={{display:"flex",justifyContent:"space-around"}}>
             {[["Niv."+lv.level,"Niveau",acc],[xp+"XP","XP Total","#CE93D8"],[tasks.length,"Tâches","#66BB6A"]].map(([v,l,c])=><div key={l} style={{textAlign:"center"}}><div style={{fontSize:18,fontWeight:800,color:c}}>{v}</div><div style={{fontSize:10,color:"#3a3a3a"}}>{l}</div></div>)}
           </div>
